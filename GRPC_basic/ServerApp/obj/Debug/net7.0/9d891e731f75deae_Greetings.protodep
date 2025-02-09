@@ -1,0 +1,2 @@
+Protos/Greetings.cs \
+Protos/GreetingsGrpc.cs: ../Greetings.proto
