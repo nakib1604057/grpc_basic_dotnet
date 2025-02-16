@@ -17,5 +17,29 @@ namespace ServerApp.Services
                 Message = "Hello from server",
             });
         }
+        public override async Task GreeteServerStream(GreetManyTimeRequest request, IServerStreamWriter<GreetManyTimeResponse> responseStream, ServerCallContext context)
+        {
+            Console.WriteLine($"Request from client: {request.Message}");
+            foreach (int i in Enumerable.Range(0, 10))
+            {
+                await responseStream.WriteAsync(new GreetManyTimeResponse()
+                {
+                    Message = i.ToString(),
+                });
+            }
+        }
+        public override async Task<GreetManyTimeResponse> GreeteClientStream(IAsyncStreamReader<GreetManyTimeRequest> requestStream, ServerCallContext context)
+        {
+            Console.WriteLine($"Request from client");
+            int sum = 0;
+            while(await requestStream.MoveNext())
+            {
+                sum += Convert.ToInt32(requestStream.Current.Message);
+            }
+            return new GreetManyTimeResponse()
+            {
+                Message = sum.ToString(),
+            };
+        }
     }
 }

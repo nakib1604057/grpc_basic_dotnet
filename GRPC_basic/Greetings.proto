@@ -3,6 +3,8 @@ package Greete;
 
 service Greeter{
 	rpc GreeterService(HelloRequest) returns (HelloReply);
+	rpc GreeteServerStream(GreetManyTimeRequest) returns (stream GreetManyTimeResponse);
+	rpc GreeteClientStream(stream GreetManyTimeRequest) returns (GreetManyTimeResponse);
 }
 
 message HelloRequest {
@@ -11,5 +13,12 @@ message HelloRequest {
 
 message HelloReply {
   string message = 1;
+}
+
+message GreetManyTimeRequest{
+	string message =1;
+}
+message GreetManyTimeResponse{
+	string message =1;
 }
 

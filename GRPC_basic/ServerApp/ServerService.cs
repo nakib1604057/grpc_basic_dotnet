@@ -15,7 +15,10 @@ namespace ServerApp
         {
             Server server = new Server()
             {
-                Services = {Greete.Greeter.BindService(new GreetingServicesImpl())},
+                Services = {
+                    Greete.Greeter.BindService(new GreetingServicesImpl()),
+                   
+                },
                 Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) },
             };
             server.Start();

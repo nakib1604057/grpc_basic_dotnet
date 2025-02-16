@@ -49,6 +49,10 @@ namespace Greete {
     static readonly grpc::Marshaller<global::Greete.HelloRequest> __Marshaller_Greete_HelloRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Greete.HelloRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Greete.HelloReply> __Marshaller_Greete_HelloReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Greete.HelloReply.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Greete.GreetManyTimeRequest> __Marshaller_Greete_GreetManyTimeRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Greete.GreetManyTimeRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Greete.GreetManyTimeResponse> __Marshaller_Greete_GreetManyTimeResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Greete.GreetManyTimeResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Greete.HelloRequest, global::Greete.HelloReply> __Method_GreeterService = new grpc::Method<global::Greete.HelloRequest, global::Greete.HelloReply>(
@@ -57,6 +61,22 @@ namespace Greete {
         "GreeterService",
         __Marshaller_Greete_HelloRequest,
         __Marshaller_Greete_HelloReply);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Greete.GreetManyTimeRequest, global::Greete.GreetManyTimeResponse> __Method_GreeteServerStream = new grpc::Method<global::Greete.GreetManyTimeRequest, global::Greete.GreetManyTimeResponse>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "GreeteServerStream",
+        __Marshaller_Greete_GreetManyTimeRequest,
+        __Marshaller_Greete_GreetManyTimeResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Greete.GreetManyTimeRequest, global::Greete.GreetManyTimeResponse> __Method_GreeteClientStream = new grpc::Method<global::Greete.GreetManyTimeRequest, global::Greete.GreetManyTimeResponse>(
+        grpc::MethodType.ClientStreaming,
+        __ServiceName,
+        "GreeteClientStream",
+        __Marshaller_Greete_GreetManyTimeRequest,
+        __Marshaller_Greete_GreetManyTimeResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -70,6 +90,18 @@ namespace Greete {
     {
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::Greete.HelloReply> GreeterService(global::Greete.HelloRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task GreeteServerStream(global::Greete.GreetManyTimeRequest request, grpc::IServerStreamWriter<global::Greete.GreetManyTimeResponse> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Greete.GreetManyTimeResponse> GreeteClientStream(grpc::IAsyncStreamReader<global::Greete.GreetManyTimeRequest> requestStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -123,6 +155,26 @@ namespace Greete {
       {
         return CallInvoker.AsyncUnaryCall(__Method_GreeterService, null, options, request);
       }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncServerStreamingCall<global::Greete.GreetManyTimeResponse> GreeteServerStream(global::Greete.GreetManyTimeRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GreeteServerStream(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncServerStreamingCall<global::Greete.GreetManyTimeResponse> GreeteServerStream(global::Greete.GreetManyTimeRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_GreeteServerStream, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncClientStreamingCall<global::Greete.GreetManyTimeRequest, global::Greete.GreetManyTimeResponse> GreeteClientStream(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GreeteClientStream(new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncClientStreamingCall<global::Greete.GreetManyTimeRequest, global::Greete.GreetManyTimeResponse> GreeteClientStream(grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncClientStreamingCall(__Method_GreeteClientStream, null, options);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override GreeterClient NewInstance(ClientBaseConfiguration configuration)
@@ -137,7 +189,9 @@ namespace Greete {
     public static grpc::ServerServiceDefinition BindService(GreeterBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_GreeterService, serviceImpl.GreeterService).Build();
+          .AddMethod(__Method_GreeterService, serviceImpl.GreeterService)
+          .AddMethod(__Method_GreeteServerStream, serviceImpl.GreeteServerStream)
+          .AddMethod(__Method_GreeteClientStream, serviceImpl.GreeteClientStream).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -148,6 +202,8 @@ namespace Greete {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, GreeterBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_GreeterService, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Greete.HelloRequest, global::Greete.HelloReply>(serviceImpl.GreeterService));
+      serviceBinder.AddMethod(__Method_GreeteServerStream, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::Greete.GreetManyTimeRequest, global::Greete.GreetManyTimeResponse>(serviceImpl.GreeteServerStream));
+      serviceBinder.AddMethod(__Method_GreeteClientStream, serviceImpl == null ? null : new grpc::ClientStreamingServerMethod<global::Greete.GreetManyTimeRequest, global::Greete.GreetManyTimeResponse>(serviceImpl.GreeteClientStream));
     }
 
   }
